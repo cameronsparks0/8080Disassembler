@@ -135,7 +135,134 @@ int Disassemble8080Op(unsigned char *codebuffer, int pc){
     case 0x7d: printf("MOV      A,L"); break; // Copies register L (ML) into register A (ML) 
     case 0x7e: printf("MOV      A,M"); break; // Copies register pair HL (VAL) into register A (ML) 
     case 0x7f: printf("MOV      A,A"); break; // Copies register A (ML) into register A (ML)
-
+    case 0x80: printf("ADD      B"); break; // Adds register A and B (ML) and copies to register A (ML)
+    case 0x81: printf("ADD      C"); break; // Adds register A and C (ML) and copies to register A (ML)
+    case 0x82: printf("ADD      D"); break; // Adds register A and D (ML) and copies to register A (ML)
+    case 0x83: printf("ADD      E"); break; // Adds register A and E (ML) and copies to register A (ML)
+    case 0x84: printf("ADD      H"); break; // Adds register A and H (ML) and copies to register A (ML)
+    case 0x85: printf("ADD      L"); break; // Adds register A and L (ML) and copies to register A (ML)
+    case 0x86: printf("ADD      M"); break; // Adds register A (ML) and pair HL (VAL) and copies to register A (ML)
+    case 0x87: printf("ADD      A"); break; // Adds register A and A (ML) and copies to register A (ML)
+    case 0x88: printf("ADC      B"); break; // Adds register A and B and flag CY(ML) and copies to register A (ML)
+    case 0x89: printf("ADC      C"); break; // Adds register A and C and flag CY(ML) and copies to register A (ML)
+    case 0x8a: printf("ADC      D"); break; // Adds register A and D and flag CY(ML) and copies to register A (ML)
+    case 0x8b: printf("ADC      E"); break; // Adds register A and E and flag CY(ML) and copies to register A (ML)
+    case 0x8c: printf("ADC      H"); break; // Adds register A and H and flag CY(ML) and copies to register A (ML)
+    case 0x8d: printf("ADC      L"); break; // Adds register A and L and flag CY(ML) and copies to register A (ML)
+    case 0x8e: printf("ADC      M"); break; // Adds register A (ML) and pair HL (VAL) and flag CY(ML) and copies to register A (ML)
+    case 0x8f: printf("ADC      A"); break; // Adds register A and A and flag CY(ML) and copies to register A (ML)
+    case 0x90: printf("SUB      B"); break; // Subtracts register B from A  (ML) and copies to register A (ML)
+    case 0x91: printf("SUB      C"); break; // Subtracts register C from A  (ML) and copies to register A (ML)
+    case 0x92: printf("SUB      D"); break; // Subtracts register D from A  (ML) and copies to register A (ML)
+    case 0x93: printf("SUB      E"); break; // Subtracts register E from A  (ML) and copies to register A (ML)
+    case 0x94: printf("SUB      H"); break; // Subtracts register H from A  (ML) and copies to register A (ML)
+    case 0x95: printf("SUB      L"); break; // Subtracts register L from A  (ML) and copies to register A (ML)
+    case 0x96: printf("SUB      M"); break; // Subtracts register pair HL (VAL) from A  (ML) and copies to register A (ML)
+    case 0x97: printf("SUB      A"); break; // Subtracts register A from A  (ML) and copies to register A (ML)
+    case 0x98: printf("SBB      B"); break; // Subtracts register B and flag CY from A (ML) and copies to register A (ML)
+    case 0x99: printf("SBB      C"); break; // Subtracts register C and flag CY from A (ML) and copies to register A (ML)
+    case 0x9a: printf("SBB      D"); break; // Subtracts register D and flag CY from A (ML) and copies to register A (ML)
+    case 0x9b: printf("SBB      E"); break; // Subtracts register E and flag CY from A (ML) and copies to register A (ML)
+    case 0x9c: printf("SBB      H"); break; // Subtracts register H and flag CY from A (ML) and copies to register A (ML)
+    case 0x9d: printf("SBB      L"); break; // Subtracts register L and flag CY from A (ML) and copies to register A (ML)
+    case 0x9e: printf("SBB      M"); break; // Subtracts register pair HL (VAL) and flag CY (ML) from A (ML) and copies to register A (ML)
+    case 0x9f: printf("SBB      L"); break; // Subtracts register A and flag CY from A (ML) and copies to register A (ML)
+    case 0xa0: printf("ANA      B"); break; // AND operation between register A and B (ML) and copies to register A (ML)
+    case 0xa1: printf("ANA      C"); break; // AND operation between register A and C (ML) and copies to register A (ML)
+    case 0xa2: printf("ANA      D"); break; // AND operation between register A and D (ML) and copies to register A (ML)
+    case 0xa3: printf("ANA      E"); break; // AND operation between register A and E (ML) and copies to register A (ML)
+    case 0xa4: printf("ANA      H"); break; // AND operation between register A and H (ML) and copies to register A (ML)
+    case 0xa5: printf("ANA      L"); break; // AND operation between register A and L (ML) and copies to register A (ML)
+    case 0xa6: printf("ANA      M"); break; // AND operation between register A (ML) and pair HL (VAL) and copies to register A (ML)
+    case 0xa7: printf("ANA      A"); break; // AND operation between register A and A (ML) and copies to register A (ML)
+    case 0xa8: printf("XRA      B"); break; // XOR operation between register A and B (ML) and copies to register A (ML)
+    case 0xa9: printf("XRA      C"); break; // XOR operation between register A and C (ML) and copies to register A (ML)
+    case 0xaa: printf("XRA      D"); break; // XOR operation between register A and D (ML) and copies to register A (ML)
+    case 0xab: printf("XRA      E"); break; // XOR operation between register A and E (ML) and copies to register A (ML)
+    case 0xac: printf("XRA      H"); break; // XOR operation between register A and H (ML) and copies to register A (ML)
+    case 0xad: printf("XRA      L"); break; // XOR operation between register A and L (ML) and copies to register A (ML)
+    case 0xae: printf("XRA      M"); break; // XOR operation between register A (ML) and pair HL (VAL) and copies to register A (ML)
+    case 0xaf: printf("XRA      A"); break; // XOR operation between register A and A (ML) and copies to register A (ML)
+    case 0xb0: printf("ORA      B"); break; // OR operation between register A and B (ML) and copies to register A (ML)
+    case 0xb1: printf("ORA      C"); break; // OR operation between register A and C (ML) and copies to register A (ML)
+    case 0xb2: printf("ORA      D"); break; // OR operation between register A and D (ML) and copies to register A (ML)
+    case 0xb3: printf("ORA      E"); break; // OR operation between register A and E (ML) and copies to register A (ML)
+    case 0xb4: printf("ORA      H"); break; // OR operation between register A and H (ML) and copies to register A (ML)
+    case 0xb5: printf("ORA      L"); break; // OR operation between register A and L (ML) and copies to register A (ML)
+    case 0xb6: printf("ORA      M"); break; // OR operation between register A (ML) and HL (VAL) and copies to register A (ML)
+    case 0xb7: printf("ORA      A"); break; // OR operation between register A and A (ML) and copies to register A (ML)
+    case 0xb8: printf("CMP      B"); break; // Register B is substracted from A (ML) - Result not saved / copied into any register
+    case 0xb9: printf("CMP      C"); break; // Register C is substracted from A (ML) - Result not saved / copied into any register
+    case 0xba: printf("CMP      D"); break; // Register D is substracted from A (ML) - Result not saved / copied into any register
+    case 0xbb: printf("CMP      E"); break; // Register E is substracted from A (ML) - Result not saved / copied into any register
+    case 0xbc: printf("CMP      H"); break; // Register H is substracted from A (ML) - Result not saved / copied into any register
+    case 0xbd: printf("CMP      L"); break; // Register L is substracted from A (ML) - Result not saved / copied into any register
+    case 0xbe: printf("CMP      M"); break; // Register pair HL (VAL) is substracted from A (ML) - Result not saved / copied into any register
+    case 0xbf: printf("CMP      A"); break; // Register A is substracted from A (ML) - Result not saved / copied into any register
+    case 0xc0: printf("RNZ"); break; // Returns to main program only if NZ flag is 0
+    case 0xc1: printf("POP      B"); break; // Register pair BC is popped off the stack (Stack pointer)
+    case 0xc2: printf("JNZ      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break; // Control jumps to address if NZ is 1
+    case 0xc3: printf("JMP      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break; // Control jumps to address
+    case 0xc4: printf("CNZ      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break; // Address is called if NZ is 1
+    case 0xc5: printf("PUSH     B"); break; // Register pair BC is pushed onto stack
+    case 0xc6: printf("ADI      #$%02x",codeSeg[1]); opBytes=2; break; // Register A is added with the value of the address and assigned to A (ML)
+    case 0xc7: printf("RST      0"); break; // Address 0 is called
+    case 0xc8: printf("RZ"); break; // Returns to main program only if Z flag is 0
+    case 0xc9: printf("RET"); break; // Control is given to address that is popped off of the stack
+    case 0xca: printf("JZ       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break; // Control jumps to address if if Z is 1
+    case 0xcb: printf("NOP"); break;
+    case 0xcc: printf("CZ       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break; //Best to lookup documentation from here onwards
+    case 0xcd: printf("CALL     $%02x%02x",codeSeg[2],codeSeg[1]); opBytes=3; break;
+    case 0xce: printf("ACI      #$%02x",codeSeg[1]); opBytes=2; break;
+    case 0xcf: printf("RST      1"); break;
+    case 0xd0: printf("RNC"); break;
+	case 0xd1: printf("POP      D"); break;
+	case 0xd2: printf("JNC      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xd3: printf("OUT      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xd4: printf("CNC      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xd5: printf("PUSH     D"); break;
+	case 0xd6: printf("SUI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xd7: printf("RST      2"); break;
+	case 0xd8: printf("RC");  break;
+	case 0xd9: printf("NOP"); break;
+	case 0xda: printf("JC       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xdb: printf("IN       #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xdc: printf("CC       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xdd: printf("NOP"); break;
+	case 0xde: printf("SBI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xdf: printf("RST      3"); break;
+    case 0xe0: printf("RPO"); break;
+	case 0xe1: printf("POP      H"); break;
+	case 0xe2: printf("JPO      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xe3: printf("XTHL");break;
+	case 0xe4: printf("CPO      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xe5: printf("PUSH     H"); break;
+	case 0xe6: printf("ANI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xe7: printf("RST      4"); break;
+	case 0xe8: printf("RPE"); break;
+	case 0xe9: printf("PCHL");break;
+	case 0xea: printf("JPE      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xeb: printf("XCHG"); break;
+	case 0xec: printf("CPE      $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xed: printf("NOP"); break;
+	case 0xee: printf("XRI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xef: printf("RST      5"); break;
+    case 0xf0: printf("RP");  break;
+	case 0xf1: printf("POP      PSW"); break; 
+	case 0xf2: printf("JP       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xf3: printf("DI");  break;
+	case 0xf4: printf("CP       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xf5: printf("PUSH     PSW"); break;
+	case 0xf6: printf("ORI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xf7: printf("RST      6"); break;
+	case 0xf8: printf("RM");  break;
+	case 0xf9: printf("SPHL");break;
+	case 0xfa: printf("JM       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xfb: printf("EI");  break;
+	case 0xfc: printf("CM       $%02x%02x",codeSeg[2],codeSeg[1]); opBytes = 3; break;
+	case 0xfd: printf("NOP"); break;
+	case 0xfe: printf("CPI      #$%02x",codeSeg[1]); opBytes = 2; break;
+	case 0xff: printf("RST      7"); break;
     }
     printf("\n");
     return opBytes;
