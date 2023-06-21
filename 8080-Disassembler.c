@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int Disassemble8080Op(unsigned char *codebuffer, int pc){
-    unsigned char *codeSeg = &codebuffer[pc];
-    int opBytes = 1;
+int Disassemble8080Op(unsigned char *codebuffer, int pc){ //Codebuffer = An array of characters containing the contents of the 8080 code file, pc = the current location within the codebuffer
+    unsigned char *codeSeg = &codebuffer[pc]; // Grabbing the current location of the array based on PC (Program counter)
+    int opBytes = 1; // How many bytes were processed in this iteration
     printf("%04x: %02x:   ",pc,*codeSeg);
     switch (*codeSeg) // ML = Memory location NOT value, VAL = Value at memory location
     {
@@ -272,19 +272,23 @@ int Disassemble8080Op(unsigned char *codebuffer, int pc){
 int main(int argc, char *argv[])
 {
     FILE *fp;
-    unsigned char *buffer=0;
-    long length;
-    int pc=0;
+    unsigned char *buffer=0; // Buffer to load file content into
+    long length; // Length of 8080 code file
+    int pc=0; // Program counter (Seperate from assembly CP - Essentially just used to keep track of location within 8080 code file)
     if(argc==2){
         fp = fopen(argv[1],"r");
-        fseek(fp,0,SEEK_END);
-        length = ftell(fp);
-        fseek(fp,0,SEEK_SET);
-        buffer = (unsigned char*)malloc(length*sizeof(unsigned char));
+        if(fp==NULL){ // Checking to see if the file exists
+            printf("ERROR! Could not open file!");
+            return 0;
+        }
+        fseek(fp,0,SEEK_END); 
+        length = ftell(fp); // Finding the length of the 8080 code file
+        fseek(fp,0,SEEK_SET); // Going back to the beginning of file to iterate through it
+        buffer = (unsigned char*)malloc(length*sizeof(unsigned char)); // Allocating space in buffer to read in code
         if(buffer!=0){
             fread(buffer,1,length,fp);
             while(pc<length){
-                pc = pc + Disassemble8080Op(buffer,pc);
+                pc = pc + Disassemble8080Op(buffer,pc); // Iterating through the 8080 code file and translating it to assembly code
             }
             free(buffer);
         }
